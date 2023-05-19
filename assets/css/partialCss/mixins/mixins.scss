@@ -1,0 +1,86 @@
+@import "../colors/colors";
+
+$wrapper: 1452px;
+$laptop: 1200px;
+$tabletLandscape: 992px;
+$mobileLandscape: 768px;
+
+$mobilePortrait: 580px;
+$mobileNarrow: 400px;
+
+@mixin wrapper {
+    @media (max-width: #{$wrapper}) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media (max-width: #{$laptop}) {
+        @content;
+    }
+}
+
+@mixin tabletLandscape {
+    @media (max-width: #{$tabletLandscape}) {
+        @content;
+    }
+}
+
+@mixin mobileLandscape {
+    @media (max-width: #{$mobileLandscape}) {
+        @content;
+    }
+}
+
+@mixin mobilePortrait {
+    @media (max-width: #{$mobilePortrait}) {
+        @content;
+    }
+}
+
+@mixin mobileNarrow {
+    @media (max-width: #{$mobileNarrow}) {
+        @content;
+    }
+}
+
+@mixin boxShadow {
+    box-shadow: 0 2px 4px #57545233;
+}
+
+@mixin borderRadius {
+    border-radius: 8px;
+}
+
+@mixin button {
+    background: lighten($c-blue, 3%);
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    transition: .3s;
+    cursor: pointer;
+    color: $c-white;
+    font-weight: 700;
+    font-size: 22px;
+    padding: 12px 20px;
+    min-width: 150px;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+
+    &:hover {
+        background: lighten($c-blue, 0%);
+    }
+
+    & > i {
+        padding-left: 8px;
+    }
+
+    @include mobileNarrow {
+        font-size: 20px;
+    }
+}
+
+@mixin heading {
+    font-size: 44px;
+}

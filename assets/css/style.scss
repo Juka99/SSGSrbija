@@ -1,0 +1,89 @@
+@import "./partialCss/colors/colors";
+@import "./partialCss/mixins/mixins";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    //scroll-behavior: smooth;
+    max-width: 100%;
+    color: $c-black;
+    overflow: visible !important;
+    //scroll-padding-top: 64px;
+}
+
+#smoothScroller {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+
+    @include wrapper {
+        padding-left: 26px;
+        padding-right: 26px;
+        max-width: unset;
+    }
+}
+
+img {
+    @include boxShadow;
+    @include borderRadius;
+    pointer-events: none;
+}
+
+p {
+    line-height: 1.6;
+    font-size: 18px;
+    letter-spacing: 0.4px;
+
+    & > a {
+        color: $c-blue;
+    }
+}
+
+// SWUP tranzicije
+
+.transition-fade {
+    transition: 0.4s;
+    opacity: 1;
+}
+
+
+html.is-animating .transition-fade {
+    opacity: 0;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: darken($c-white, 4%);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: $c-blue;
+    border-radius: 6px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: lighten($c-blue, 8%);
+}
+
+@import "./partialCss/navigation/navigation.css";
+@import "./partialCss/main/mainPage.css";
+@import "./partialCss/footer/footer.css";
+@import "./partialCss/calendar/calendar.css";
+@import "./partialCss/loader/loader.css";

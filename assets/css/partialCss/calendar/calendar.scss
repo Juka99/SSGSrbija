@@ -1,0 +1,80 @@
+@import "../colors/colors";
+@import "../mixins/mixins";
+
+.calendar {
+    width: 100%;
+    padding-top: 188px;
+}
+
+.calendar__overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba($c-black, .8);
+}
+
+.calendar__heading {
+    text-align: center;
+}
+
+.calendar__heading-special {
+    @include heading;
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        width: 80%;
+        height: 3px;
+        bottom: -8px;
+        background: $c-blue;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.calendar-info {
+    width: 100%;
+    @include boxShadow;
+    @include borderRadius;
+    margin: 84px 0 112px 0;
+}
+
+.calendar-info__row {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid darken($c-white, 5%);
+
+    &:first-child {
+        border-bottom: 2px solid $c-blue;
+
+        & > .calendar-info__cell {
+            min-height: unset;
+            padding: 12px;
+        }
+
+        & > .calendar-info__cell:nth-child(odd) {
+            background: darken($c-white, 2%);
+        }
+    }
+
+    & > .calendar-info__cell:nth-child(odd) {
+        background: darken($c-white, 2%);
+    }
+}
+
+.calendar-info__cell {
+    flex: 1;
+    padding: 4px 12px;
+    font-size: 18px;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-basis: 18%;
+    width: 18%;
+
+    &:first-child {
+        flex: 0 1 10%;
+    }
+}

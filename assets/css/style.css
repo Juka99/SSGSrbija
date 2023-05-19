@@ -1,0 +1,80 @@
+@import "./partialCss/navigation/navigation.css";
+@import "./partialCss/main/mainPage.css";
+@import "./partialCss/footer/footer.css";
+@import "./partialCss/calendar/calendar.css";
+@import "./partialCss/loader/loader.css";
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  max-width: 100%;
+  color: #303030;
+  overflow: visible !important;
+}
+
+#smoothScroller {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+@media (max-width: 1452px) {
+  .wrapper {
+    padding-left: 26px;
+    padding-right: 26px;
+    max-width: unset;
+  }
+}
+
+img {
+  box-shadow: 0 2px 4px rgba(87, 84, 82, 0.2);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+p {
+  line-height: 1.6;
+  font-size: 18px;
+  letter-spacing: 0.4px;
+}
+p > a {
+  color: #348fea;
+}
+
+.transition-fade {
+  transition: 0.4s;
+  opacity: 1;
+}
+
+html.is-animating .transition-fade {
+  opacity: 0;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: whitesmoke;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #348fea;
+  border-radius: 6px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #59a3ee;
+}/*# sourceMappingURL=style.css.map */

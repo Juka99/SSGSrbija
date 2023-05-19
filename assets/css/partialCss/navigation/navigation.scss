@@ -1,0 +1,243 @@
+@import "../colors/colors";
+@import "../mixins/mixins";
+
+.navigation {
+    width: 100%;
+    padding: 12px 0;
+    position: fixed;
+    top: 0;
+    transition: .2s;
+    z-index: 999;
+
+    &.is-detached {
+        @include boxShadow;
+        background: $c-white;
+    }
+
+    @include tabletLandscape {
+        bottom: 0;
+        top: unset;
+        background: $c-white;
+        padding: 0;
+        box-shadow: 0 0 4px #57545233 !important;
+    }
+}
+
+.navigation__progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background-color: $c-blue;
+    transition: width 0.3s;
+    z-index: 999;
+}
+
+.navigation__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 120px;
+    max-width: 1400px;
+    margin: 0 auto;
+
+    @include wrapper {
+        padding-left: 26px;
+        padding-right: 26px;
+        max-width: unset;
+    }
+
+    @include tabletLandscape {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.navigation__logo-container {
+
+    @include tabletLandscape {
+        display: none;
+    }
+}
+
+.navigation__logo {
+    max-width: 100%;
+    width: 100px;
+    transition: .2s;
+    box-shadow: none;
+
+    .is-detached & {
+        width: 60px;
+    }
+}
+
+.navigation__menu-container {
+
+    @include tabletLandscape {
+        width: 100%;
+    }
+}
+
+.navigation__menu {
+    display: flex;
+    align-items: center;
+    gap: 56px;
+    list-style-type: none;
+
+    @include wrapper {
+        gap: 52px;
+    }
+
+    @include tabletLandscape {
+        gap: unset;
+    }
+}
+
+.navigation__menu-item {
+
+    @include tabletLandscape {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &:last-child {
+            display: none;
+        }
+    
+        &:nth-child(5) > .navigation__menu-link::after {
+            content: none;
+        }
+    }
+    
+}
+
+.navigation__menu-link {
+    text-decoration: none;
+    color: $c-black;
+    font-weight: 400;
+    font-size: 18px;
+    position: relative;
+    transition: .3s;
+
+    & > i {
+        display: none;
+        font-size: 20px;
+
+        @include tabletLandscape {
+            display: block;
+        }
+    }
+
+    &.is-inactive {
+        color: lighten($c-black, 50%);
+    }
+
+    &::after {
+        @include tabletLandscape {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            height: calc(100% - 24px);
+            width: 1px;
+            background: darken($c-white, 10%);
+        }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        right: 0;
+        width: 0;
+        height: 2px;
+        background: $c-blue;
+        transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+
+        @include tabletLandscape {
+            content: none;
+        }
+    }
+
+    &:hover::before{
+        left: 0;
+        right: auto;
+        width: 100%;
+    }
+
+    &:hover {
+        @include tabletLandscape {
+            color: $c-red;
+        }
+    }
+
+    @include tabletLandscape {
+        width: 100%;
+        padding: 12px 0;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        &.navigation__menu-link--active {
+            color: $c-red;
+        }
+    }
+
+    @include mobilePortrait {
+        font-size: 16px;
+    }
+
+    @include mobileNarrow {
+        font-size: 14px;
+        gap: 5px;
+    }
+}
+
+.navigation__menu-documents-mobile {
+    display: none;
+
+    @include mobilePortrait {
+        display: block;
+    }
+}
+
+.navigation__menu-documents {
+    @include mobilePortrait {
+        display: none;
+    }
+}
+
+.navigation__language-container {
+    text-decoration: none;
+    color: $c-black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 1px;
+        background: lighten($c-black, 50%);
+        left: -30px;
+    }
+
+    @include tabletLandscape {
+        display: none;
+    }
+}
+
+.navigation__language {
+    width: 40px;
+    box-shadow: none;
+}
+
+.navigation__language-text {}
