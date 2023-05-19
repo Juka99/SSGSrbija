@@ -1,9 +1,11 @@
 let swup = new Swup();
 
+// butter.init();
+
 function init() {
 
     // Butter.js
-    
+
     setTimeout(() => {
         butter.init();
     }, 0);
@@ -56,7 +58,11 @@ function init() {
 
 }
 
-init();
+window.onload = function() {
+    setTimeout(function() {
+        init();
+    }, 0);
+};
 
 swup.on('willReplaceContent', function() {
     butter.cancel();
@@ -64,5 +70,6 @@ swup.on('willReplaceContent', function() {
 
 swup.on('contentReplaced', function() {
     window.scrollTo(0, 0);
+    butter.cancel();
     init();
 })
