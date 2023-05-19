@@ -7,7 +7,7 @@
       this.defaults = {
         wrapperId: 'smoothScroller',
         wrapperDamper: 0.1,
-        cancelOnTouch: false
+        cancelOnTouch: true
       };
   
       this.validateOptions = function(ops) {
